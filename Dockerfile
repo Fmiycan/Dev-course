@@ -1,5 +1,5 @@
 # Dockerfile
-FROM node:latest
+FROM node:23.1.0
 
 # Создание директории приложения
 WORKDIR /usr/src/app
@@ -14,6 +14,6 @@ RUN npm install
 COPY . .
 
 # Привязка порта, который будет использоваться приложением
-EXPOSE 80
+EXPOSE 8000
 
-CMD [ "node", "app.js" ]
+CMD [ "node", "src/app/app.js" ]
