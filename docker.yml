@@ -1,0 +1,18 @@
+name: Docker CI/CD
+
+on:
+  push:
+    branches: [ main ]
+
+jobs:
+  build:
+    runs-on: ubuntu-latest
+    steps:
+      - name: Checkout repository
+        uses: actions/checkout@v2
+      
+      - name: Build Docker image
+        run: docker build -t Dev-course .
+
+      - name: Run Docker container
+        run: docker run -d -p 6379:6379 Dev-course
