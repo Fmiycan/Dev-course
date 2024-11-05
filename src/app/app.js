@@ -1,12 +1,12 @@
-// app.js
-
+require('dotenv').config();  // Load environment variables
+import {Scraper} from './Scraper';
 const TelegramBot = require('node-telegram-bot-api');
 const CurrencySelector = require('./CurrencySelector');
-const Scraper = require('./Scraper');
 
-const TELEGRAM_TOKEN = 'YOUR_TELEGRAM_TOKEN';
-const bot = new TelegramBot(TELEGRAM_TOKEN, { polling: true });
-const CHAT_ID = 'YOUR_CHAT_ID';
+
+// Load token and chat ID from environment variables
+const TELEGRAM_TOKEN = process.env.TELEGRAM_TOKEN;
+const CHAT_ID = process.env.CHAT_ID;
 
 pairs = [
   {'name': 'AUD/CHF', 'url': 'https://www.investing.com/currencies/aud-chf-technical'},
@@ -30,17 +30,14 @@ pairs = [
 ]
 
 const currencySelector = new CurrencySelector(pairs);
-const scraper = new Scraper(bot, CHAT_ID);
+const selectedPair = currencySelector.selectPair();
+const scraper = new Scraper(selectedPair, TELEGRAM_TOKEN, CHAT_ID);
 
 async function main() {
-    
-    const selectedPair = currencySelector.selectPair();
-
-    await scraper.checkPair(selectedPair);
-
+    await scraper.startScraping();
     setInterval(async () => {
-        await scraper.checkPair(selectedPair);
-    }, 60000);
+        await scraper.startScraping();
+    }, 30000); // Runs every 30 seconds
 }
 
 main();

@@ -6,7 +6,7 @@ class CurrencySelector {
     }
 
     selectPair() {
-        // For demonstration, select the first pair; this could be made interactive.
+        // For simplicity, this selects the first pair; modify for dynamic selection
         return this.pairs[0];
     }
 }
