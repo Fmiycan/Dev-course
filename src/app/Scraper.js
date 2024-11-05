@@ -1,7 +1,7 @@
 const fetch = (...args) => import('node-fetch').then(({ default: fetch }) => fetch(...args));
-import * as cheerio from 'cheerio';
+const cheerio = require('cheerio');
 
-class Scraper {
+module.exports = class Scraper {
     constructor(pair, token, chatId, targetTime = '15m') {
         this.pair = pair;
         this.token = token;
@@ -114,4 +114,4 @@ class Scraper {
     }
 }
 
-export default Scraper;
+
