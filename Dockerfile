@@ -1,8 +1,8 @@
 # Dockerfile
-FROM node:latest
+FROM node:20.13.1
 
 # Создание директории приложения
-WORKDIR /usr/src/app
+WORKDIR /src/app
 
 # Установка зависимостей приложения
 # Используется символ подстановки для копирования обоих файлов package.json и package-lock.json
@@ -14,6 +14,6 @@ RUN npm install
 COPY . .
 
 # Привязка порта, который будет использоваться приложением
-EXPOSE 80
+EXPOSE 8000
 
-CMD [ "node", "app.js" ]
+CMD [ "node", "src/app/app.js" ]
