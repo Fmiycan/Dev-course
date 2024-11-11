@@ -36,11 +36,11 @@ module.exports = class Scraper {
                 if (columns.length === 4) {
                     const indicator = $(columns[0]).text().trim();
                     const value = $(columns[1]).text().trim();
-                    const signal = $(columns[2]).text().trim();
+                    const signal = $(columns[1]).text().trim();
                     technicalData[indicator] = { value, signal };
                 }
             });
-
+            console.log(technicalData)
             return technicalData;
         } catch (error) {
             console.error(`Ошибка при парсинге данных для ${this.pair.name}:`, error);
@@ -49,13 +49,13 @@ module.exports = class Scraper {
     }
 
     // Метод добавления эмодзи к значениям сигналов
-    addEmoji(signal) {
-        if (signal.includes('Strong Buy')) return '🟢 Strong Buy';
-        if (signal.includes('Buy')) return '🟡 Buy';
-        if (signal.includes('Strong Sell')) return '🔴 Strong Sell';
-        if (signal.includes('Sell')) return '🟠 Sell';
-        if (signal.includes('Neutral')) return '⚪ Neutral';
-        return signal;
+    addEmoji(value) {
+        if (value.includes('Strong Buy')) return '🟢 Strong Buy';
+        if (value.includes('Buy')) return '🟡 Buy';
+        if (value.includes('Strong Sell')) return '🔴 Strong Sell';
+        if (value.includes('Sell')) return '🟠 Sell';
+        if (value.includes('Neutral')) return '⚪ Neutral';
+        return value;
     }
 
     // Отправка сообщения в Telegram с обновлениями по индикаторам
@@ -85,7 +85,7 @@ module.exports = class Scraper {
     async checkAndUpdate() {
         const currentData = await this.fetchData();
         if (!currentData) return;
-
+       
         const updates = [];
         for (const [indicator, data] of Object.entries(currentData)) {
             const previous = this.previousData[indicator];
