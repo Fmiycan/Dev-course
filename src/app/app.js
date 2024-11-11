@@ -1,5 +1,5 @@
 require('dotenv').config();  // Load environment variables
-import {Scraper} from './Scraper';
+const Scraper = require('./Scraper.js');
 const TelegramBot = require('node-telegram-bot-api');
 const CurrencySelector = require('./CurrencySelector');
 

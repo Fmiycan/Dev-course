@@ -1,8 +1,8 @@
 # Dockerfile
-FROM node:23.1.0
+FROM node:20.13.1
 
 # Создание директории приложения
-WORKDIR /usr/src/app
+WORKDIR /src/app
 
 # Установка зависимостей приложения
 # Используется символ подстановки для копирования обоих файлов package.json и package-lock.json
