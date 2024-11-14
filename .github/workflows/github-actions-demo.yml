@@ -7,10 +7,10 @@ on:
 jobs:
     Explore-GitHub-Actions:
       runs-on: ubuntu-latest
-    steps:
-      - name: unit test
-        run: npm run test:unit
-      - name: e2e test
-        run: npm run test:e2e
-      - name: lint code
-        run: npm run lint
+      steps:
+        - name: unit test
+          run: npm run test:unit
+        - name: e2e test
+          run: npm run test:e2e
+        - name: lint code
+          run: npm run lint
