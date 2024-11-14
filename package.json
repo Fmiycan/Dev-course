@@ -5,7 +5,6 @@
     "main": "app.js",
     "scripts": {
         "start": "node app.js",
-        "build:storybook": "node ./src/help/storybook.js",
         "test:unit": "react-scripts test",
         "test:e2e": "node ./src/help/e2e.test.js",
         "lint": "node ./src/help/eslint.js",

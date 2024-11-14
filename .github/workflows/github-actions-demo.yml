@@ -11,8 +11,6 @@ jobs:
       matrix:
         node-varsion: [ 20.x ]
     steps:
-      - name: build storybook
-        run: npm run build:storybook
       - name: unit test
         run: npm run test:unit
       - name: e2e test
