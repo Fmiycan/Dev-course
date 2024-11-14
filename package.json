@@ -5,12 +5,12 @@
     "main": "app.js",
     "scripts": {
         "start": "node app.js",
-        "build:storybook": "node ./scripts/storybook.js",
+        "build:storybook": "node ./src/help/storybook.js",
         "test:unit": "react-scripts test",
-        "test:e2e": "node ./scripts/e2e.test.js",
-        "lint": "node ./scripts/eslint.js",
-        "type:check": "node ./scripts/typecheck.js",
-        "i18n:check": "node ./scripts/i18n-check.js"
+        "test:e2e": "node ./src/help/e2e.test.js",
+        "lint": "node ./src/help/eslint.js",
+        "type:check": "node ./src/help/typecheck.js",
+        "i18n:check": "node ./src/help/i18n-check.js"
     },
     "dependencies": {
         "cheerio": "^1.0.0",
