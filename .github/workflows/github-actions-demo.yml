@@ -5,11 +5,8 @@ on:
   pull_request:
     branches: [ main ]
 jobs:
-  init:
-    runs-on: ubuntu-latest
-    strategy:
-      matrix:
-        node-varsion: [ 20.x ]
+    Explore-GitHub-Actions:
+      runs-on: ubuntu-latest
     steps:
       - name: unit test
         run: npm run test:unit
