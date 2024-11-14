@@ -34,7 +34,6 @@ const selectedPair = currencySelector.selectPair();
 const scraper = new Scraper(selectedPair, TELEGRAM_TOKEN, CHAT_ID);
 
 async function main() {
-    console.log('ok 200')
     await scraper.startScraping();
     setInterval(async () => {
         await scraper.startScraping();
