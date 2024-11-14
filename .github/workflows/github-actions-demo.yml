@@ -19,3 +19,16 @@ jobs:
         run: |
           ls ${{ github.workspace }}
       - run: echo "🍏 This job's status is ${{ job.status }}."
+
+jobs:
+  build:
+    runs-on: ubuntu-latest
+    steps:
+      - name: Checkout repository
+        uses: actions/checkout@v2
+      
+      - name: Build Docker image
+        run: docker build -t Dev-course .
+
+      - name: Run Docker container
+        run: docker run -d -p 8000:8000 Dev-course
