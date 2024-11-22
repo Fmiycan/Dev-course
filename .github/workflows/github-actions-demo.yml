@@ -25,9 +25,6 @@ jobs:
       - name: Checkout repository
         uses: actions/checkout@v2
         
-      - name: Login to Docker (optional)
-        run: echo "${{ secrets.BKGS6Q4ZIUASYNU5QRDZJ63HIB7TE }}" | docker login -u "${{ secrets.fmiycan }}" --password-stdin
-
       - name: Pull Docker image
         run: docker pull dev-course:latest
 
@@ -37,6 +34,7 @@ jobs:
           -v "${{ github.workspace }}:/app" \
           dev-course:latest \
           cmd /c "echo Docker container is running on Windows!"
+          
       # - name: Build Docker image
       #   run: docker build -t dev-course .
 
