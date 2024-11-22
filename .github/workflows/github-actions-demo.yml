@@ -33,7 +33,7 @@ jobs:
         # run: echo "${{ secrets.DOCKER_PASSWORD }}" | docker login -u "${{ secrets.DOCKER_USERNAME }}" --password-stdin
       
       - name: Build Docker image
-        run: docker build -t dev-course ../../.
+        run: docker build -t dev-course .
 
       # - name: Pull Docker image
       #   run: docker pull dev-course:latest
