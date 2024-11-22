@@ -13,7 +13,7 @@ jobs:
         uses: actions/checkout@v2
       
       - name: Build Docker image
-        run: docker build -t Dev-course .
+        run: docker build -t dev-course .
 
       - name: Run Docker container
-        run: docker run -d -p 8000:8000 Dev-course
+        run: docker run -d -p 8000:8000 dev-course
