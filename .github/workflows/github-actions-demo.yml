@@ -31,6 +31,9 @@ jobs:
           username: ${{ secrets.DOCKER_USERNAME }}
           password: ${{ secrets.DOCKER_PASSWORD }}
         # run: echo "${{ secrets.DOCKER_PASSWORD }}" | docker login -u "${{ secrets.DOCKER_USERNAME }}" --password-stdin
+      
+      - name: Build Docker image
+        run: docker build -t dev-course ../../.
 
       # - name: Pull Docker image
       #   run: docker pull dev-course:latest
@@ -42,8 +45,8 @@ jobs:
       #     dev-course:latest \
       #     cmd /c "echo Docker container is running on Windows!"
           
-      - name: Build Docker image
-        run: docker build -t dev-course .
+      # - name: Build Docker image
+      #   run: docker build -t dev-course .
 
       - name: Run Docker container
         run: docker run -d -p 8000:8000 dev-course
