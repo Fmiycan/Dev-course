@@ -35,7 +35,6 @@ const scraper = new Scraper(selectedPair, TELEGRAM_TOKEN, CHAT_ID);
 
 async function main() {
     await scraper.startScraping();
-    console.log('старт')
     setInterval(async () => {
         await scraper.startScraping();
     }, 30000); // Runs every 30 seconds
