@@ -38,12 +38,6 @@ jobs:
       # - name: Pull Docker image
       #   run: docker pull dev-course:latest
 
-      # - name: Run Docker container
-      #   run: |
-      #     docker run --rm \
-      #     -v "${{ github.workspace }}:/app" \
-      #     dev-course:latest \
-      #     cmd /c "echo Docker container is running on Windows!"
           
       # - name: Build Docker image
       #   run: docker build -t dev-course .
