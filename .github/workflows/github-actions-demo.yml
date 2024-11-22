@@ -29,7 +29,7 @@ jobs:
         run: docker build -t dev-course .
 
       - name: Pull Docker image
-      run: docker pull dev-course:latest
+        run: docker pull dev-course:latest
 
       - name: Run Docker container
         run: docker run -d -p 8000:8000 dev-course
